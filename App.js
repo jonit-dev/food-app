@@ -1,17 +1,40 @@
 import React, { Component } from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { StyleSheet } from "react-native";
+import * as Font from "expo-font";
+import { AppLoading } from "expo";
+import MealsNavigator from "./navigation/MealsNavigator";
+import { useScreens } from "react-native-screens";
+
+useScreens(); //improve screens transition performance.
 
 export default class App extends Component {
-  state = {};
+  state = { dataLoaded: false };
+
+  onFetchFonts() {
+    return Font.loadAsync({
+      "open-sans": require("./assets/fonts/OpenSans-Regular.ttf"),
+      "open-sans-bold": require("./assets/fonts/OpenSans-Bold.ttf")
+    });
+  }
 
   render() {
-    const { appContainer } = styles;
+    if (!this.state.dataLoaded) {
+      return (
+        <AppLoading
+          startAsync={() => this.onFetchFonts()}
+          onFinish={() => this.setState({ dataLoaded: true })}
+          onError={err => console.log(err)}
+        />
+      );
+    } else {
+      return <MealsNavigator />;
 
-    return (
-      <View style={appContainer}>
-        <Text>My New Component</Text>
-      </View>
-    );
+      // return (
+      //   <View style={appContainer}>
+      //     <Text style={Typography.p}>My New Component</Text>
+      //   </View>
+      // );
+    }
   }
 }
 

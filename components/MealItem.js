@@ -59,10 +59,10 @@ const styles = StyleSheet.create({
   mealItem: {
     height: 200,
     width: "100%",
-    margin: 10,
     backgroundColor: "#f5f5f5",
     borderRadius: 10,
-    overflow: "hidden"
+    overflow: "hidden",
+    padding: 10
   },
   mealTitle: {
     color: "white",

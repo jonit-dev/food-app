@@ -8,6 +8,7 @@ import {
 } from "react-native";
 
 import { Typography } from "../constants/typography";
+import DefaultText from "./DefaultText";
 
 const MealItem = props => {
   const {
@@ -33,21 +34,21 @@ const MealItem = props => {
         <View>
           <View style={{ ...mealRow, ...mealHeader }}>
             <ImageBackground source={{ uri: imageUrl }} style={mealImage}>
-              <Text style={mealTitle} numberOfLines={1}>
+              <DefaultText style={mealTitle} numberOfLines={1}>
                 {title}
-              </Text>
+              </DefaultText>
             </ImageBackground>
           </View>
           <View style={{ ...mealRow, ...mealDetail }}>
-            <Text style={{ ...Typography.p, ...{ fontSize: 12 } }}>
+            <DefaultText style={{ ...Typography.p, ...{ fontSize: 12 } }}>
               {duration}min
-            </Text>
-            <Text style={{ ...Typography.p, ...{ fontSize: 12 } }}>
+            </DefaultText>
+            <DefaultText style={{ ...Typography.p, ...{ fontSize: 12 } }}>
               {complexity.toUpperCase()}
-            </Text>
-            <Text style={{ ...Typography.p, ...{ fontSize: 12 } }}>
+            </DefaultText>
+            <DefaultText style={{ ...Typography.p, ...{ fontSize: 12 } }}>
               {affordability.toUpperCase()}
-            </Text>
+            </DefaultText>
           </View>
         </View>
       </TouchableOpacity>
@@ -73,7 +74,7 @@ const styles = StyleSheet.create({
 
     marginLeft: 5,
     fontFamily: "open-sans-bold",
-    fontSize: 15,
+    fontSize: 14,
     color: "white",
     backgroundColor: "rgba(0,0,0,0.5)",
     paddingVertical: 5,
